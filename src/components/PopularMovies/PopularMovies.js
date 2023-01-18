@@ -14,26 +14,17 @@ import styles from './styles';
 import GetApis from './../../controllers/apis/getAips';
 import ItemMovies from '../common/itemMovies/itemMovies';
 import PopularReview from '../common/ItemMoviesReview/ItemMoviesReview';
-import { useNavigation } from '@react-navigation/native';
+import {useNavigation} from '@react-navigation/native';
 
 const PopularMovies = () => {
-  const navigation = useNavigation()
+  const navigation = useNavigation();
   const [dataPopular, setDataPopular] = useState([]);
   const [isLoadMore, setIsLoadMore] = useState(false);
   const [count, setCount] = useState(1);
 
   const itemSepara = () => {
     return (
-      <View
-        style={{
-          height: 10,
-          width: '100%',
-          justifyContent: 'center',
-          paddingRight: 20,
-        }}>
-        <View
-          style={{height: 1, backgroundColor: '#008054', width: '100%'}}></View>
-      </View>
+      <View style={{height: 0.5, backgroundColor: '#008054', width: '100%'}} />
     );
   };
 
@@ -45,22 +36,20 @@ const PopularMovies = () => {
           width: '100%',
           justifyContent: 'center',
           paddingRight: 20,
-          marginBottom: 66
+          marginBottom: 66,
         }}>
-        <ActivityIndicator size='large' color='#00FEA8'/>
+        <ActivityIndicator size="large" color="#00FEA8" />
       </View>
     );
   };
 
   function increase() {
-    setCount( count + 1)
+    setCount(count + 1);
   }
 
   function loadMore() {
-    if(isLoadMore) {
-      return(
-        <FooterComponent/>
-      )
+    if (isLoadMore) {
+      return <FooterComponent />;
     }
   }
 
@@ -68,13 +57,12 @@ const PopularMovies = () => {
     GetApis.getPopular(count).then(data => {
       setDataPopular(data);
     });
-  }, [count])
+  }, [count]);
 
   return (
     <View style={styles.container}>
       <View
         style={{
-          width: '100%',
           backgroundColor: '#161616',
           paddingVertical: 10,
           paddingHorizontal: 10,
@@ -84,10 +72,10 @@ const PopularMovies = () => {
             <Ionicons name="arrow-back" size={30} color="#fff" />
             <Text
               style={{
-                color: '#00FFA9',
-                fontSize: 30,
+                color: '#fff',
+                fontSize: 25,
                 marginLeft: 8,
-                fontWeight: '600',
+                fontWeight: '500',
               }}>
               Popular
             </Text>
@@ -104,11 +92,11 @@ const PopularMovies = () => {
         ListFooterComponent={loadMore}
         onEndReached={() => {
           setIsLoadMore(true);
-          increase()
+          increase();
 
           setTimeout(() => {
             setIsLoadMore(false);
-            setDataPopular(dataPopular.concat(GetApis.getPopular(count)))
+            setDataPopular(dataPopular.concat(GetApis.getPopular(count)));
           }, 2000);
         }}
         onEndReachedThreshold={0.1}

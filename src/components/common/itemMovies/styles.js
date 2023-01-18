@@ -1,10 +1,14 @@
 import { StyleSheet } from "react-native";
+import constants from "../../../controllers/constants";
 
 export default styles = StyleSheet.create({
     container: {
-        marginVertical: 5, 
         flexDirection: "row",
-        width: '100%'
+        backgroundColor: constants.color.backgroundGrownLight,
+        borderRadius: 8,
+        alignItems: 'flex-start',
+        marginVertical: 5,
+        padding: 5
     },
     imageMovie: {
         resizeMode: "cover", 
@@ -13,13 +17,13 @@ export default styles = StyleSheet.create({
         borderRadius: 8
     },
     titleMovie: {
-        width: 250,
-        fontSize: 20,
+        width: '100%',
+        fontSize: 18,
         fontWeight: "400",
         color: "#fff"
     },
     overview: {
-        fontSize: 18,
+        fontSize: 15,
         color: "#8c8c8c"
     }, 
     rattingMovie: {

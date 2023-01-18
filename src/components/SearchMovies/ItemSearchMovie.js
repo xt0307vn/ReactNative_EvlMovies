@@ -61,9 +61,9 @@ const styles = StyleSheet.create({
   container: {
     width: '100%',
     flexDirection: 'row',
-    backgroundColor: '#323232',
+    backgroundColor: Constants.color.backgroundGrownLight,
     alignItems: 'center',
-    paddingHorizontal: 5,
+    paddingHorizontal: 3,
     paddingVertical: 5,
     borderRadius: 8,
   },

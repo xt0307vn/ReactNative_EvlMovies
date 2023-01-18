@@ -11,7 +11,7 @@ const itemMovies = ({movie}) => {
   const navigation = useNavigation();
 
   const gotoDetail = () => {
-    navigation.navigate('DetailMovie', {id: movie.item.id, navigation})
+    navigation.navigate(constants.screenName.DetailMovie, {id: movie.item.id, navigation})
   }
   return (
     <TouchableOpacity onPress={gotoDetail}>
@@ -20,7 +20,7 @@ const itemMovies = ({movie}) => {
           source={movie?.item?.title == undefined ? {uri: 'https://t3.ftcdn.net/jpg/04/34/72/82/360_F_434728286_OWQQvAFoXZLdGHlObozsolNeuSxhpr84.jpg'} : {uri: 'https://image.tmdb.org/t/p/original/' + movie?.item?.poster_path} }
           style={styles.imageMovie}
         />
-        <View style={{marginLeft: 10, justifyContent: 'center'}}>
+        <View style={{marginHorizontal: 10, justifyContent: 'center'}}>
           <Text style={styles.titleMovie} numberOfLines={2} ellipsizeMode='tail'>{movie?.item?.title == undefined ? "Error" : movie?.item?.title}</Text>
           <Text style={styles.yearMovie}>{movie?.item?.vote_count == undefined ? "Error" : movie?.item?.vote_count}</Text>
           <View style={{flexDirection: 'row', alignItems: 'center'}}>

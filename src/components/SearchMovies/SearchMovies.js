@@ -96,7 +96,7 @@ const SearchMovies = () => {
 
       {/* Main */}
       <View
-        style={{margin: 20, marginBottom: 66, paddingBottom: 70, marginTop: 5}}>
+        style={{marginBottom: 66, marginBottom: 70, marginTop: 5}}>
         <FlatList
           data={dataSearch}
           keyExtractor={(item, index) => index.toString()}

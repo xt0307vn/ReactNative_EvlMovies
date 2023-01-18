@@ -175,6 +175,7 @@ class EvlMoviesApis {
     }
   }
 
+
 }
 
 export default EvlMoviesApis;

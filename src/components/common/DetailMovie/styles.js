@@ -11,9 +11,9 @@ export default styles = StyleSheet.create({
     height: 150,
   },
   titleMovie: {
-    width: 250,
+    width: '100%',
     fontSize: 25,
-    fontWeight: '400',
+    fontWeight: '500',
     color: '#fff',
   },
   infomation: {

@@ -24,16 +24,8 @@ const PopularMovies = () => {
 
   const itemSepara = () => {
     return (
-      <View
-        style={{
-          height: 10,
-          width: '100%',
-          justifyContent: 'center',
-          paddingRight: 20,
-        }}>
         <View
-          style={{height: 1, backgroundColor: '#008054', width: '100%'}}></View>
-      </View>
+          style={{height: 0.5, backgroundColor: '#008054', width: '100%'}}/>
     );
   };
 
@@ -84,10 +76,10 @@ const PopularMovies = () => {
             <Ionicons name="arrow-back" size={30} color="#fff" />
             <Text
               style={{
-                color: '#00FFA9',
-                fontSize: 30,
+                color: '#fff',
+                fontSize: 25,
                 marginLeft: 8,
-                fontWeight: '600',
+                fontWeight: '500',
               }}>
               Top rated
             </Text>

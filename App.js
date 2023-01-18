@@ -25,6 +25,7 @@ import Home from './src/components/Home/Home';
 import SearchMovies from './src/components/SearchMovies/SearchMovies';
 import Icon from 'react-native-vector-icons/Ionicons';
 import DetailMovie from './src/components/common/DetailMovie/DetailMovie';
+import UserReviews from './src/components/UserReviews/UserReviews';
 
 const Stack = createStackNavigator();
 const Tabs = createBottomTabNavigator();
@@ -32,34 +33,72 @@ const Tabs = createBottomTabNavigator();
 const HomeStack = createStackNavigator();
 const SearchStack = createStackNavigator();
 
+
 const HomeStackScreen = () => {
   return (
-    <HomeStack.Navigator initialRouteName='Home' screenOptions={() => ({
-      headerShown: false,
-    })}>
-      <HomeStack.Screen name="Home" component={Home} />
-      <HomeStack.Screen name="DetailMovie" component={DetailMovie} screenOptions={{
-      headerShown: true,
-          }}/>
-      <HomeStack.Screen name="PopularMoives" component={PopularMovies} screenOptions={() => ({
-      headerShown: true
-    })}/>
-    <HomeStack.Screen name="TopRatedMovies" component={TopRatedMovies} screenOptions={() => ({
-      headerShown: true
-    })}/>
+    <HomeStack.Navigator
+      initialRouteName={Constants.screenName.Home}
+      screenOptions={() => ({
+        headerShown: false,
+      })}>
+      <HomeStack.Screen name={Constants.screenName.Home} component={Home} />
+      <HomeStack.Screen
+        name={Constants.screenName.DetailMovie}
+        component={DetailMovie}
+        screenOptions={{
+          headerShown: true,
+        }}
+      />
+      <HomeStack.Screen
+        name={Constants.screenName.PopularMovies}
+        component={PopularMovies}
+        screenOptions={() => ({
+          headerShown: true,
+        })}
+      />
+      <HomeStack.Screen
+        name={Constants.screenName.TopRatedMovies}
+        component={TopRatedMovies}
+        screenOptions={() => ({
+          headerShown: true,
+        })}
+      />
+      
+      <HomeStack.Screen
+        name={Constants.screenName.UserReviews}
+        component={UserReviews}
+        screenOptions={() => ({
+          headerShown: true,
+        })}
+      />
     </HomeStack.Navigator>
   );
 };
 
 const SearchStackScreen = () => {
   return (
-    <SearchStack.Navigator screenOptions={() => ({
-      headerShown: false
-    })}>
-      <SearchStack.Screen name="SearchMovies" component={SearchMovies} />
-      <HomeStack.Screen name="DetailMovie" component={DetailMovie} screenOptions={{
-      headerShown: true,
-          }}/>
+    <SearchStack.Navigator
+      screenOptions={() => ({
+        headerShown: false,
+      })}>
+      <SearchStack.Screen
+        name={Constants.screenName.SearchMovies}
+        component={SearchMovies}
+      />
+      <SearchStack.Screen
+        name={Constants.screenName.DetailMovie}
+        component={DetailMovie}
+        screenOptions={{
+          headerShown: true,
+        }}
+      />
+      <SearchStack.Screen
+        name={Constants.screenName.UserReviews}
+        component={UserReviews}
+        screenOptions={{
+          headerShown: true,
+        }}
+      />
     </SearchStack.Navigator>
   );
 };
@@ -74,12 +113,12 @@ function App() {
             let iconName;
             let iconColor;
             let iconSize;
-            if (route.name === "HomeStackScreen") {
+            if (route.name === 'HomeStackScreen') {
               iconName = focused ? 'home' : 'ios-home-outline';
               iconColor = focused ? '#04FFA9' : '#008053';
               iconSize = focused ? 35 : 25;
             }
-            if (route.name === "SearchStackScreen") {
+            if (route.name === 'SearchStackScreen') {
               iconName = focused ? 'ios-search-outline' : 'search';
               iconSize = focused ? 35 : 25;
               iconColor = focused ? '#04FFA9' : '#008053';
@@ -102,16 +141,9 @@ function App() {
           tabBarActiveTintColor: 'black',
           tabBarLabel: true,
           tabBarInactiveTintColor: 'black',
-        })}
-      >
-        <Tabs.Screen
-          name="HomeStackScreen"
-          component={HomeStackScreen}
-        />
-        <Tabs.Screen
-          name="SearchStackScreen"
-          component={SearchStackScreen}
-        />
+        })}>
+        <Tabs.Screen name="HomeStackScreen" component={HomeStackScreen} />
+        <Tabs.Screen name="SearchStackScreen" component={SearchStackScreen} />
       </Tabs.Navigator>
     </NavigationContainer>
   );

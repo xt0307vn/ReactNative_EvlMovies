@@ -4,6 +4,7 @@ export default styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: '#000',
+        paddingHorizontal: 10
     },
     searchBox: {
         flexDirection: 'row',
@@ -11,7 +12,7 @@ export default styles = StyleSheet.create({
         borderRadius: 50,
         paddingVertical: 8,
         paddingHorizontal: 5,
-        margin: 15,
+        marginVertical: 15,
         alignItems: 'center'
     },
     inputSearch: {

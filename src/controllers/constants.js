@@ -1,6 +1,6 @@
 export default {
     color: {
-
+        backgroundGrownLight: '#161616'
     },
     images: {
         img1: require('../assets/images/Artboard 220.png'),
@@ -13,8 +13,10 @@ export default {
     screenName: {
         Home: 'Home',
         PopularMovies: 'PopularMovies',
-        Top250Movies: 'Top250Movies',
-        SearchMovies: 'SearchMovies'
+        TopRatedMovies: 'TopRatedMovies',
+        SearchMovies: 'SearchMovies',
+        DetailMovie: 'DetailMovie',
+        UserReviews: 'UserReviews',
 
     }
 }

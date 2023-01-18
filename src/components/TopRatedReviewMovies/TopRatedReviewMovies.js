@@ -27,7 +27,7 @@ import {
   
     itemSepara = () => {
       return (
-        <View style={{height: '100%', backgroundColor: '#666666', width: 1}} />
+        <View style={{height: '100%',  width: 5}} />
       );
     };
   
@@ -38,6 +38,7 @@ import {
           horizontal
           renderItem={(item, index) => <ItemMoviesReview movie={item} />}
           ItemSeparatorComponent={itemSepara}
+          style={{backgroundColor: '#151515'}}
         />
       </View>
     );

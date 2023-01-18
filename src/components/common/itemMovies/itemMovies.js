@@ -9,7 +9,7 @@ const itemMovies = ({movie}) => {
   const navigation = useNavigation()
 
   function gotoDetail() {
-      navigation.push('DetailMovie', {id: movie.item.id, navigation})
+      navigation.push(constants.screenName.DetailMovie, {id: movie.item.id, navigation})
   }
   return (
     <TouchableOpacity onPress={gotoDetail}>
@@ -20,12 +20,12 @@ const itemMovies = ({movie}) => {
           }}
           style={styles.imageMovie}
         />
-        <View style={{justifyContent: 'center', width: '70%', paddingHorizontal: 10}}>
+        <View style={{ width: '65%', paddingHorizontal: 10, }}>
           <Text style={styles.titleMovie} numberOfLines={2} ellipsizeMode='tail'>{movie?.item?.title}</Text>
           <Text style={{...styles.overview, width: '100%'}} numberOfLines={2} ellipsizeMode='tail'>{movie?.item?.overview}</Text>
-          <View style={{flexDirection: 'row', alignItems: 'center'}}>
-            <Ionicons name="star" size={20} color="#FFCA28" />
-            <Text style={{...styles.overview, marginLeft: 10, color: '#fff'}}>
+          <View style={{flexDirection: 'row', alignItems: 'flex-end'}}>
+            <Ionicons name="star" size={12} color="#FFCA28" />
+            <Text style={{...styles.overview, marginLeft: 5, color: '#fff', marginBottom: -2}}>
               {movie?.item?.vote_average}
             </Text>
           </View>

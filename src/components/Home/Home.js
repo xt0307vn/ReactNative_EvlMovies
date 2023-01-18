@@ -5,7 +5,7 @@ import {
   Button,
   Touchable,
   TouchableOpacity,
-  ActivityIndicator
+  ActivityIndicator,
 } from 'react-native';
 
 import styles from './styles';
@@ -16,33 +16,31 @@ import GetApis from '../../controllers/apis/getAips';
 import Constants from '../../controllers/constants';
 import {useEffect, useState} from 'react';
 import axios from 'axios';
+import constants from '../../controllers/constants';
 
 const url = 'https://imdb-api.com/en/API/MostPopularMovies/k_2656c3fe';
 
 const Home = props => {
   function gotoPopular() {
-    props.navigation.push('PopularMoives');
+    props.navigation.push(constants.screenName.PopularMovies);
   }
 
   function gotoTopRated() {
-    props.navigation.push('TopRatedMovies');
+    props.navigation.push(constants.screenName.TopRatedMovies);
   }
-  
-  useEffect(() => {
-  })
 
-  
+  useEffect(() => {});
 
   const Apis = () => {
-    console.log("đang lấy apis...")
+    console.log('đang lấy apis...');
     GetApis.getSearch('avatar', 1)
-    .then(data => {
-      console.log(data)
-    })
-    .catch(err => {
-      console.log(err)
-    })
-  }
+      .then(data => {
+        console.log(data);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  };
 
   return (
     <ScrollView style={styles.container}>
@@ -52,18 +50,21 @@ const Home = props => {
             style={{
               flexDirection: 'row',
               justifyContent: 'space-between',
-              alignItems: 'flex-end',
+              alignItems: 'flex-end', 
             }}>
-            <Text style={styles.title}>Popular</Text>
+            <View style={styles.titleBoxSession}>
+              <View style={styles.lineBeforTitleBox}></View>
+              <Text style={styles.titleSession}>Popular</Text>
+            </View>
             <TouchableOpacity onPress={gotoPopular}>
               <Text
                 style={{
                   ...styles.title,
                   marginRight: 40,
-                  fontSize: 18,
+                  fontSize: 15,
                   fontWeight: 'normal',
                 }}>
-                See all>>
+                See all
               </Text>
             </TouchableOpacity>
           </View>
@@ -72,26 +73,31 @@ const Home = props => {
               backgroundColor: '#008053',
               width: '90%',
               height: 1,
+              marginLeft: 15,
+              marginTop: 5
             }}></View>
           <PopularReviewMovies />
         </View>
-        <View style={styles.popularView}>
+        <View style={styles.topRateView}>
           <View
             style={{
               flexDirection: 'row',
               justifyContent: 'space-between',
               alignItems: 'flex-end',
             }}>
-            <Text style={styles.title}>Top rated</Text>
+            <View style={styles.titleBoxSession}>
+              <View style={styles.lineBeforTitleBox}></View>
+              <Text style={styles.titleSession}>Top rate</Text>
+            </View>
             <TouchableOpacity onPress={gotoTopRated}>
               <Text
                 style={{
                   ...styles.title,
                   marginRight: 40,
-                  fontSize: 18,
+                  fontSize: 15,
                   fontWeight: 'normal',
                 }}>
-                See all>>
+                See all
               </Text>
             </TouchableOpacity>
           </View>
@@ -100,6 +106,8 @@ const Home = props => {
               backgroundColor: '#008053',
               width: '90%',
               height: 1,
+              marginLeft: 15,
+              marginTop: 5
             }}></View>
           <TopRatedReviewMovies />
         </View>

@@ -5,10 +5,12 @@ import {
   Image,
   SafeAreaView,
   TouchableOpacity,
+  Button,
 } from 'react-native';
 import Ionicon from 'react-native-vector-icons/Ionicons';
 import YoutubeIframe from 'react-native-youtube-iframe';
 import {LogBox} from 'react-native';
+import {useNavigation} from '@react-navigation/native';
 
 LogBox.ignoreLogs([
   'Non-serializable values were found in the navigation state',
@@ -17,14 +19,20 @@ LogBox.ignoreLogs([
 import styles from './styles';
 import GetApis from '../../../controllers/apis/getAips';
 import {useEffect, useState} from 'react';
+import Constants from '../../../controllers/constants';
+import constants from '../../../controllers/constants';
 
-const DetailMovie = ({navigation, route}) => {
+const DetailMovie = ({route}) => {
+  const navigation = useNavigation();
+  const [goReview, setGoReview] = useState(0);
+
   const [detail, setDetail] = useState();
   const [video, setVideo] = useState();
   const [casts, setCasts] = useState();
   const [images, setImages] = useState();
   const [reviews, setReviews] = useState([]);
   const [poster, setPoster] = useState();
+  const [genres, setGenres] = useState([]);
   const [idVideoYoutube, setIdVideoYoutube] = useState();
 
   const idMovie = route.params.id;
@@ -40,6 +48,7 @@ const DetailMovie = ({navigation, route}) => {
       .then(result => {
         const resultDetails = result[0];
         setDetail(resultDetails);
+        setGenres(resultDetails?.genres);
         const resultVideos = result[1];
         setVideo(resultVideos);
         const resultCasts = result[2];
@@ -62,6 +71,9 @@ const DetailMovie = ({navigation, route}) => {
         console.log(err);
       });
   }
+  const gotoUserReviews = () => {
+    navigation.navigate('Home1');
+  };
 
   useEffect(() => {
     loadData();
@@ -116,6 +128,15 @@ const DetailMovie = ({navigation, route}) => {
               videoId={idVideoYoutube}
             />
           </View>
+
+          <View style={{backgroundColor: '#222222'}}>
+            <ScrollView horizontal style={{marginTop: 10}}>
+              {genres.map((genre, id) => (
+                <ItemGenre data={genre} key={id} />
+              ))}
+            </ScrollView>
+          </View>
+
           <View style={{flexDirection: 'row', flex: 1, padding: 10}}>
             <Image
               source={{
@@ -153,7 +174,6 @@ const DetailMovie = ({navigation, route}) => {
                   textAlign: 'justify',
                   lineHeight: 15,
                   fontSize: 15,
-                  height: 150,
                 }}
                 ellipsizeMode="tail"
                 numberOfLines={7}>
@@ -227,9 +247,17 @@ const DetailMovie = ({navigation, route}) => {
 
         {/* Reviews */}
         <View style={{...styles.sessionBox, marginBottom: 66}}>
-          <View style={styles.titleBoxSession}>
-            <View style={styles.lineBeforTitleBox}></View>
-            <Text style={styles.titleSession}>User reviews</Text>
+          <View
+            style={{
+              flexDirection: 'row',
+              justifyContent: 'space-between',
+              alignItems: 'flex-end',
+              marginBottom: 15,
+            }}>
+            <View style={{...styles.titleBoxSession, marginBottom: 0}}>
+              <View style={styles.lineBeforTitleBox}></View>
+              <Text style={styles.titleSession}>User reviews</Text>
+            </View>
           </View>
           <ScrollView
             horizontal
@@ -238,6 +266,12 @@ const DetailMovie = ({navigation, route}) => {
               <ItemReview data={review} key={i} />
             ))}
           </ScrollView>
+
+          {/* <TouchableOpacity onPress={gotoUserReviews}>
+              <Text style={{fontSize: 18, color: '#fff', marginRight: 30}}>
+                See all
+              </Text>
+            </TouchableOpacity> */}
         </View>
       </ScrollView>
     </SafeAreaView>
@@ -306,14 +340,37 @@ const ItemReview = props => {
       <Text style={{color: '#fff', fontSize: 21, fontWeight: '500'}}>
         {props.data?.author_details.username}
       </Text>
-      <View style={{flexDirection: 'row', alignItems: 'center', marginLeft: 10}}>
+      <View
+        style={{flexDirection: 'row', alignItems: 'center', marginLeft: 10}}>
         <Ionicon name="star" size={20} color="#FFCA28" />
         <Text style={{color: '#fff', fontSize: 18, marginLeft: 10}}>
-          {props.data?.author_details.rating ? props.data?.author_details.rating + '/10' : 0 + '/10'}
+          {props.data?.author_details.rating
+            ? props.data?.author_details.rating + '/10'
+            : 0 + '/10'}
         </Text>
       </View>
-      <Text style={{color: '#fff', fontSize: 15, marginLeft: 10}} numberOfLines={14}>
+      <Text
+        style={{color: '#fff', fontSize: 15, marginLeft: 10}}
+        numberOfLines={14}>
         {props.data?.content}
+      </Text>
+    </View>
+  );
+};
+
+const ItemGenre = props => {
+  return (
+    <View
+      style={{
+        marginHorizontal: 10,
+        backgroundColor: '#222222',
+        padding: 8,
+        borderRadius: 8,
+        borderColor: '#999999',
+        borderWidth: 0.5,
+      }}>
+      <Text style={{color: '#fff', fontSize: 15, fontWeight: '300'}}>
+        {props.data?.name}
       </Text>
     </View>
   );
