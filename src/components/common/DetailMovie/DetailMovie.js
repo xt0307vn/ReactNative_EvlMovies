@@ -93,8 +93,8 @@ const DetailMovie = ({route}) => {
           }}>
           <TouchableOpacity onPress={() => navigation.pop()}>
             <View style={{flexDirection: 'row', alignItems: 'center'}}>
-              <Ionicon name="arrow-back" size={25} color="#fff" />
-              <Text style={{color: '#fff', fontSize: 25, marginLeft: 15}}>
+              <Ionicon name="arrow-back" size={21} color="#fff" />
+              <Text style={{color: '#fff', fontSize: 21, marginLeft: 15}}>
                 Back
               </Text>
             </View>
@@ -102,7 +102,11 @@ const DetailMovie = ({route}) => {
         </View>
 
         <View
-          style={{width: '100%', height: 1, backgroundColor: '#fff'}}></View>
+          style={{
+            width: '100%',
+            height: 0.5,
+            backgroundColor: '#8c8c8c',
+          }}></View>
         <View
           style={{
             backgroundColor: '#212121',
@@ -173,7 +177,7 @@ const DetailMovie = ({route}) => {
                   color: '#fff',
                   textAlign: 'justify',
                   lineHeight: 15,
-                  fontSize: 15,
+                  fontSize: 14,
                 }}
                 ellipsizeMode="tail"
                 numberOfLines={7}>

@@ -18,16 +18,16 @@ export default styles = StyleSheet.create({
     },
     titleMovie: {
         width: '100%',
-        fontSize: 18,
+        fontSize: 16,
         fontWeight: "400",
         color: "#fff"
     },
     overview: {
-        fontSize: 15,
+        fontSize: 13,
         color: "#8c8c8c"
     }, 
     rattingMovie: {
-        fontSize: 18,
+        fontSize: 16,
         color: "#fff"
     }
 

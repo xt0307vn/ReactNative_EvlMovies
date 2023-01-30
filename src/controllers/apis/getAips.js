@@ -86,7 +86,7 @@ class EvlMoviesApis {
     try {
       let response = await axios.get(this.endpoint.movie.popular);
       let review = [];
-      for (let i = 0; i < 7; i++) {
+      for (let i = 0; i < 5; i++) {
         review.push(response.data.results[i]);
       }
       return review;

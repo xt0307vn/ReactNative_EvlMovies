@@ -8,7 +8,7 @@ export default styles = StyleSheet.create({
     },
     searchBox: {
         flexDirection: 'row',
-        backgroundColor: '#333333',
+        backgroundColor: '#151515',
         borderRadius: 50,
         paddingVertical: 8,
         paddingHorizontal: 5,

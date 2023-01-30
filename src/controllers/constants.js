@@ -1,6 +1,10 @@
 export default {
     color: {
-        backgroundGrownLight: '#161616'
+        backgroundGrownLight: '#161616',
+        backgroundGradientBlack: 'rgba(0,0,0,0.7)',
+        rated: '#FFCA27',
+        tabBottomActive: '#00FFA9',
+        tabBottomInactive: '#007F53'
     },
     images: {
         img1: require('../assets/images/Artboard 220.png'),

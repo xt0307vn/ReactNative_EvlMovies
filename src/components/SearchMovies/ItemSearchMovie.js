@@ -43,7 +43,7 @@ const ItemSearchMovie = props => {
             style={{
               ...styles.textIntro,
               textAlign: 'justify',
-              fontSize: 15,
+              fontSize: 13,
             }}
             numberOfLines={1}
             ellipsizeMode="tail">
@@ -62,7 +62,6 @@ const styles = StyleSheet.create({
     width: '100%',
     flexDirection: 'row',
     backgroundColor: Constants.color.backgroundGrownLight,
-    alignItems: 'center',
     paddingHorizontal: 3,
     paddingVertical: 5,
     borderRadius: 8,
@@ -73,7 +72,7 @@ const styles = StyleSheet.create({
   },
   textIntro: {
     color: '#fff',
-    fontSize: 21,
+    fontSize: 15,
     width: '80%',
   },
 });

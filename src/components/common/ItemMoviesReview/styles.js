@@ -4,7 +4,7 @@ export default styles = StyleSheet.create({
     container: {
         marginVertical: 5, 
         width: 140,
-        height: 300,
+        height: 280,
         borderRadius: 18,
         marginHorizontal: 10,
         borderRadius: 18,
@@ -19,9 +19,10 @@ export default styles = StyleSheet.create({
 
     },
     titleMovie: {
-        fontSize: 18,
+        fontSize: 16,
         fontWeight: "400",
-        color: "#fff"
+        color: "#fff",
+        height: 46
     },
     yearMovie: {
         fontSize: 15,

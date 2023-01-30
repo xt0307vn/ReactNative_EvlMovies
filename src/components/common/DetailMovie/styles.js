@@ -17,7 +17,7 @@ export default styles = StyleSheet.create({
     color: '#fff',
   },
   infomation: {
-    fontSize: 18,
+    fontSize: 16,
     color: '#fff',
     marginHorizontal: 5,
   },
@@ -28,13 +28,13 @@ export default styles = StyleSheet.create({
     justifyContent: 'center'
   },
   titleSession: {
-    fontSize: 31,
+    fontSize: 25,
     color: '#fff',
-    fontWeight: '400',
+    fontWeight: '500',
     marginLeft: 10,
   },
   lineBeforTitleBox: {
-    height: 35,
+    height: 25,
     width: 5,
     backgroundColor: '#00FFA9',
     borderRadius: 8,

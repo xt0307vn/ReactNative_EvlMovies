@@ -106,6 +106,7 @@ const SearchStackScreen = () => {
 function App() {
   return (
     <NavigationContainer>
+      <StatusBar backgroundColor='#000'/>
       <Tabs.Navigator
         initialRouteName={Constants.screenName.Home}
         screenOptions={({route}) => ({
