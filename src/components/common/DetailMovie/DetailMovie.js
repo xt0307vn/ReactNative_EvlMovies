@@ -271,7 +271,7 @@ const DetailMovie = ({route}) => {
             ))}
           </ScrollView>
 
-          {/* <TouchableOpacity onPress={gotoUserReviews}>
+          {/* <TouchableOpacity onPress={() => navigation.push(Constants.screenName.Home)}>
               <Text style={{fontSize: 18, color: '#fff', marginRight: 30}}>
                 See all
               </Text>

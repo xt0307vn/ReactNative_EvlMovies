@@ -51,7 +51,7 @@ const Home = props => {
         activeDotColor="#007D51"
         autoplayTimeout={4}>
         {dataSlide.map((item, index) => (
-          <ItemSlide data={item} key={index} />
+          <ItemSlide data={item} key={index} navigation={props.navigation}/>
         ))}
       </Swiper>
       <View style={styles.container}>
@@ -126,9 +126,12 @@ const Home = props => {
   );
 };
 
-const ItemSlide = ({data}) => {
+const ItemSlide = ({data, navigation}) => {
+  function gotoDetail() {
+    navigation.navigate(Constants.screenName.DetailMovie, {id: data?.id})
+  }
   return (
-    <TouchableOpacity style={styles.slide} onPress={() => Alert.alert(data?.original_title)}>
+    <TouchableOpacity style={styles.slide} onPress={() => gotoDetail()}>
       <View style={styles.slide}>
         <View style={styles.introMovieSlide}>
           <View
